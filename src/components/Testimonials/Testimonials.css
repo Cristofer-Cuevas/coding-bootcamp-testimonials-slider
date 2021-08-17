@@ -18,6 +18,13 @@ body {
 }
 
 .imagesTestimonialsContainer {
+  position: relative;
   width: 100%;
   height: 100vh;
+}
+
+.imagesContainer {
+  z-index: 10;
+  position: absolute;
+  left: 0;
 }
