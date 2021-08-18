@@ -12,19 +12,35 @@ body {
 }
 
 .container {
+  position: relative;
   width: 90%;
+  overflow: hidden;
   height: 80vh;
   background-color: red;
 }
 
 .imagesTestimonialsContainer {
-  position: relative;
-  width: 100%;
+  /* width: 100%; */
+  /* z-index: 10; */
   height: 100vh;
+  transition: left 0.5s;
+  position: absolute;
+  left: 0;
 }
 
 .imagesContainer {
-  z-index: 10;
-  position: absolute;
-  left: 0;
+  width: 100%;
+}
+
+.commentContainer {
+  width: 100%;
+  display: flex;
+}
+
+.userComment {
+  margin: 0;
+  padding: 0;
+  /* width: 100%; */
+
+  /* margin-top: 50%; */
 }
