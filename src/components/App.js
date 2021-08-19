@@ -1,12 +1,12 @@
 import Testimonials from "./Testimonials/Testimonials";
 
-import beforeArrow from "./Testimonials/svg/icon-prev.svg";
+import previousArrow from "./Testimonials/svg/icon-prev.svg";
 import nextArrow from "./Testimonials/svg/icon-next.svg";
 
 import tanyaImage from "./Testimonials/images/image-tanya.jpg";
 import johnImage from "./Testimonials/images/image-john.jpg";
 
-const arrows = [beforeArrow, nextArrow];
+const arrows = [previousArrow, nextArrow];
 
 const testimonials = [
   {

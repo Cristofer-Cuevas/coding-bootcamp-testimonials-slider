@@ -5,42 +5,32 @@ body {
 
 #root {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
-.container {
-  position: relative;
-  width: 90%;
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.imagesAndBtnContainer {
   overflow: hidden;
-  height: 80vh;
+  position: relative;
+  width: 80%;
+  height: 45vh;
   background-color: red;
 }
 
-.imagesTestimonialsContainer {
-  /* width: 100%; */
-  /* z-index: 10; */
-  height: 100vh;
-  transition: left 0.5s;
+.imagesContainer {
   position: absolute;
+  transition: left 0.5s;
   left: 0;
 }
 
-.imagesContainer {
-  width: 100%;
-}
-
-.commentContainer {
-  width: 100%;
-  display: flex;
-}
-
-.userComment {
-  margin: 0;
-  padding: 0;
-  /* width: 100%; */
-
-  /* margin-top: 50%; */
+.btnContainer {
+  position: absolute;
 }
