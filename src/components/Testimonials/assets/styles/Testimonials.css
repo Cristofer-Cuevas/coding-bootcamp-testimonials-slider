@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
+
+:root {
+  --darkBlue: hsl(240, 38%, 20%);
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Inter;
+  font-weight: 300;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Images slider styles  */
+
+.container {
+  margin-top: -2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  max-width: 500px;
+  background-image: url("../svg/pattern-bg.svg"), url("../svg/pattern-quotes.svg");
+  background-repeat: no-repeat;
+  background-size: 100%, 23%;
+  background-position: top, center center;
+}
+
+/* The secondContainer is for the buttons, because they were getting hidden when applying the overflow: hidden; property to the .sliderImagesContainer, but with the secondContainer the button wouldn't because they're now relative to the secondContainer instead of being relative to the  the .sliderImagesContainer which is the container that has the overflow: hidden;  proprety  */
+
+.secondContainer {
+  margin-top: 2rem;
+  position: relative;
+  width: 80%;
+  height: auto;
+}
+
+.sliderImagesContainer {
+  box-shadow: 0px 0px 15px hsla(0, 0%, 0%, 0.2);
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imagesContainer {
+  display: flex;
+  height: 100%;
+  transition: left 1s;
+  position: relative;
+  left: 0;
+  width: 100%;
+}
+
+.btnContainer {
+  box-shadow: 1px 0px 15px hsla(0, 0%, 0%, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90px;
+  height: 40px;
+  border-radius: 2.5rem;
+  background-color: white;
+  position: relative;
+  left: 35%;
+  bottom: 20px;
+}
+
+.previousArrow,
+.nextArrow {
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Comments slider styles */
+
+.sliderCommentsContainer {
+  margin-top: 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.commentsContainer {
+  position: relative;
+  left: 0;
+  display: flex;
+  transition: left 1s;
+}
+
+.userBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userComment {
+  color: var(--darkBlue);
+  width: 95%;
+  line-height: 1.6rem;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.userNameAndUserRollContainer {
+  width: 50%;
+  text-align: center;
+}
+
+.userName {
+  margin: 0;
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+
+.userRoll {
+  margin: 0.3rem 0 0 0;
+  color: hsl(240, 18%, 77%);
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 90%;
+    height: 90%;
+    background-size: 50%, 0;
+    background-position: right;
+    max-width: 100%;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .secondContainer {
+    width: 40%;
+  }
+
+  .sliderImagesContainer {
+    margin: 0;
+  }
+
+  .btnContainer {
+    left: 3rem;
+    align-self: flex-end;
+  }
+
+  .sliderCommentsContainer {
+    width: 50%;
+  }
+
+  .userBox {
+    align-items: flex-start;
+  }
+
+  .userNameAndUserRollContainer {
+    display: flex;
+    width: auto;
+    text-align: start;
+  }
+
+  .userComment {
+    line-height: 2.3rem;
+    font-size: 2.5vmax;
+    text-align: start;
+  }
+
+  .userName {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .userRoll {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0rem 0.5rem;
+  }
+}
