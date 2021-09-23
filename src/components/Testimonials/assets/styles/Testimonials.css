@@ -148,6 +148,13 @@ body {
 }
 
 @media screen and (min-width: 800px) {
+  .mainContainer {
+    background-image: url("../svg/pattern-curve.svg");
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: bottom left;
+  }
+
   .container {
     width: 90%;
     height: 90%;
