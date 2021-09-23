@@ -1,53 +1,23 @@
-import React, { useEffect, useRef, createRef, forwardRef } from "react";
+import React, { useEffect, createRef, forwardRef } from "react";
 import "./assets/styles/normalize.css";
 import "./assets/styles/Testimonials.css";
 
 const Testimonials = (props) => {
-  // REFS PASSED TO COMPONENTS
-  const imagesContainerRef = createRef();
-  console.log(props);
-
-  let cont = 0;
-
-  const targetBtn = (target) => {
-    console.log("hola");
-    console.log(target);
-    if (target.className === "previousArrow") {
-      --cont;
-    } else if (target.className === "nextArrow") {
-      ++cont;
-    }
-    console.log(cont);
-
-    if (cont >= props.testimonials.length) {
-      cont = 0;
-    } else if (cont < 0) {
-      cont = props.testimonials.length - 1;
-    }
-
-    imagesContainerRef.current.style.left = "-" + cont + "00%";
-  };
-
-  console.log(props);
-
   return (
     <main className="mainContainer">
-      <ImagesAndContainer targetBtn={targetBtn} arrows={props.arrows} testimonials={props.testimonials}>
-        {/* <Comments ref={imagesContainerRef}></Comments> */}
-      </ImagesAndContainer>
+      <ImagesContainer arrows={props.arrows} testimonials={props.testimonials} />
     </main>
   );
 };
 
 // Slider Container
-const ImagesAndContainer = (props) => {
+const ImagesContainer = (props) => {
+  // Refs
   const commentsContainerRef = createRef();
   const imagesContainerRef = createRef();
-  console.log(props);
 
   let cont = 0;
 
-  console.log(props);
   const handleArrowBtnClick = (e) => {
     // Slider Logic
     if (e.target.className === "previousArrow") {
@@ -68,22 +38,20 @@ const ImagesAndContainer = (props) => {
 
   // Setting width once the component has loaded
   useEffect(() => {
-    console.log(imagesContainerRef);
-
+    // Widths for imagesContainer and commentsContainer
     imagesContainerRef.current.style.width = props.testimonials.length + "00%";
-    // imagesContainerRef.current.style.height = 100 + "%";
     commentsContainerRef.current.style.width = props.testimonials.length + "00%";
 
+    // Giving each child (each image and comment) of imagesContainer and commentsContainer its proper width
     Array.from(imagesContainerRef.current.children).forEach((img) => {
-      // img.style.height = "100%";
       img.style.width = 100 / props.testimonials.length + "%";
     });
 
     Array.from(commentsContainerRef.current.children).forEach((comment) => {
       comment.style.width = 100 / props.testimonials.length + "%";
     });
-    console.log(commentsContainerRef);
   }, [imagesContainerRef, commentsContainerRef, props]);
+  // End of the useEffect()
 
   return (
     <>
@@ -111,6 +79,7 @@ const ImagesAndContainer = (props) => {
   );
 };
 
+// Forwarding the ref to ImagesContainer to slide comments with images
 const Comments = forwardRef((props, commentsContainerRef) => {
   return (
     <div className="sliderCommentsContainer">
